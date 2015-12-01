@@ -3,6 +3,7 @@
 
 from tkinter import *
 from tkinter import ttk
+#import newproject
 
 root = Tk()
 root.title("RAB Software")
@@ -24,16 +25,41 @@ def FirsWindwosLoad(FWL=TRUE):
 
 def NewProject():
     FirsWindwosLoad(FALSE)
+    cetaklabel = Label(root,text="Buat Proyek Baru").grid(row=0, column=1, columnspan=2 )
+    ProjectName = Label(root,text="Nama Project").grid(row=2, column=0)
+    ProjectOwner = Label(root, text="Nama Pemilik").grid(row=3, column=0)
+    ProjectPJ = Label(root, text="Penanggung Jawab").grid(row=4, column=0)
+    ProjectLokasi = Label(root, text="Lokasi").grid(row=5, column=0)
+    ProjectKet = Label(root, text="Keterangan").grid(row=6, column=0)
 
-    #bila di klik tombol atau dari menu Proyek baru
-    cetaklabel = Label(root,text="New Project").pack()
+    EName = Entry(root, width=100).grid(row=2, column=1)
+    EOwner = Entry(root, width=100).grid(row=3, column=1)
+    EPJ = Entry(root, width=100).grid(row=4, column=1)
+    ELokasi = Entry(root, width=100).grid(row=5, column=1)
+    EKet = Entry(root, width=100).grid(row=6, column=1)
+
+    save_project = Button(root, text = "Simpan", command=SaveProject, width=10,padx=2, pady=5).grid(row=8, column=1)
+    #save_project.grid(row=8, column=2)
+    clear_project = Button(root, text = "Kosongkan",  command=ClearProject,  width=10,padx=2, pady=5).grid(row=8, column=2)
+    #clear_project.grid(row=8, column=1)
+    batal_project = Button(root, text = "Batal",  command=BatalProject,  width=10,padx=2, pady=5).grid(row=8, column=0)
+    #batal_project.grid(row=8, column=0)
+
 
 def OpenProject():
     FirsWindwosLoad(FALSE)
-    global FirsWindows
+    #global FirsWindows
     #bila di klik tombol atau dari menu Proyek baru
-    cetaklabel = Label(root,text="Open Project").pack()
+    cetaklabel = Label(root,text="   Open Project            ", pady=15).grid(row=9, column=1, columnspan=2 )
 
+def SaveProject():
+     cetaklabel = Label(root,text="   Project Tersimpan      ", pady=15).grid(row=9, column=1,  columnspan=2)
+
+def ClearProject():
+     cetaklabel = Label(root,text="   Clear Tersimpan        ", pady=15).grid(row=9, column=1,  columnspan=2)
+
+def BatalProject():
+     cetaklabel = Label(root,text=" Batalkan Penyimpanan   ", pady=15).grid(row=9, column=1,  columnspan=2)
 
 def Main():
     #root Menu
